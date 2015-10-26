@@ -1,0 +1,41 @@
+// container
+.go-form-group
+  padding $spacing-xs $spacing-md
+  position relative
+
+// module
+.go-form-field
+  box-shadow 0 -1px 0 $color-divider inset
+  display block
+  padding-bottom $spacing-xxs
+  padding-top $spacing-xxs
+  width percentage(1)
+  // states
+  &:focus
+    box-shadow 0 -2px 0 $color-primary-tint inset
+  &.is-invalid
+    box-shadow 0 -1px 0 $color-error inset
+    // states
+    &:focus
+      box-shadow 0 -2px 0 $color-error inset
+
+// children
+:-ms-input-placeholder
+  color $color-text-hint
+::-moz-placeholder
+  color $color-text-hint
+::-webkit-input-placeholder
+  color $color-text-hint
+
+// siblings
+.go-form-label
+  color $color-text-hint
+  display block
+  margin-bottom - $spacing-xxs
+  margin-top $spacing-xxs
+  text label
+  // states
+  &.is-active
+    color $color-primary-tint
+  &.is-invalid
+    color $color-error

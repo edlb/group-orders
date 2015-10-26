@@ -1,0 +1,6 @@
+.DS_Store
+dist/*
+node_modules
+
+# Prevent private conf from being published to GitHub
+src/app/app.constants.js

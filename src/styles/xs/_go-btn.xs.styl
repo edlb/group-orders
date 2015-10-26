@@ -1,0 +1,22 @@
+// container
+.go-btns
+  display flex
+  margin-top $spacing-xs
+
+// module
+.go-btn
+  background-color $color-primary
+  border-radius $border-radius-sm
+  box-shadow $shadow-z1
+  display block
+  font-weight $font-weight-medium
+  padding ($spacing-xxs * 3.5 - $font-size-button * .5) $spacing-md
+  text button
+  text-transform uppercase
+  transition background-color $transition-duration-md, box-shadow $transition-duration-md
+  // states
+  &:hover
+    background-color $color-primary-tint
+  &:active
+    background-color $color-primary-dark
+    box-shadow $shadow-z2

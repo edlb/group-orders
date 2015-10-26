@@ -1,0 +1,46 @@
+{
+  "name": "group-orders",
+  "version": "0.0.0",
+  "description": "Group orders using Slack & Google Spreadsheets",
+  "author": "@edlb",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "npm run build:images && npm run build:styles && npm run build:markup && npm run build:scripts",
+    "build:images": "cp src/images/* dist/",
+    "build:markup": "jade src/ --hierarchy -o dist/",
+    "build:scripts": "browserify src/app/app.module.js -t browserify-ngannotate -p [minifyify --no-map] -o dist/bundle.js",
+    "build:styles": "stylus src/styles/xs/bundle.xs.styl -p | cleancss -s -o dist/bundle.xs.css && stylus src/styles/sm/bundle.sm.styl -p | cleancss -s -o dist/bundle.sm.css",
+    "clean": "rm -rf dist && mkdir dist",
+    "predev": "npm run clean",
+    "dev": "parallelshell 'npm run watch' 'npm run serve'",
+    "prod": "npm run build",
+    "serve": "live-server --no-browser --port=7357 dist/",
+    "watch": "parallelshell 'npm run watch:images' 'npm run watch:styles' 'npm run watch:markup' 'npm run watch:scripts'",
+    "watch:images": "npm run build:images",
+    "watch:markup": "npm run build:markup -- -w",
+    "watch:scripts": "watchify src/app/app.module.js -t browserify-ngannotate -o dist/bundle.js",
+    "watch:styles": "stylus src/styles/**/bundle.*.styl -w -o dist/"
+  },
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edlb/group-orders.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.4.7",
+    "browserify": "^11.2.0",
+    "browserify-ngannotate": "^1.0.1",
+    "clean-css": "^3.4.6",
+    "jade": "^1.11.0",
+    "live-server": "^0.8.2",
+    "minifyify": "^7.1.0",
+    "parallelshell": "^2.0.0",
+    "rx-angular": "^1.0.4",
+    "stylus": "^0.52.4",
+    "watchify": "^3.4.0"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }
+}

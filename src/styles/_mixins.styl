@@ -1,0 +1,27 @@
+// functions
+percentage($fraction)
+  $fraction * 100 + '%'
+
+// fonts
+text($size-name)
+  if $size-name is 'label'
+    text-form-size $font-size-label
+  if $size-name is 'helper'
+    text-form-size $font-size-helper
+  else if $size-name is 'button'
+    text-form-size $font-size-button
+  else if $size-name is 'body'
+    text-form-size $font-size-body
+  else if $size-name is 'important'
+    text-form-size $font-size-important
+  else if $size-name is 'card-heading'
+    text-form-size $font-size-card-heading
+  else if $size-name is 'heading'
+    text-form-size $font-size-heading
+  else if $size-name is 'heading-lg'
+    text-form-size $font-size-heading-lg
+  else if $size-name is 'large'
+    text-form-size $font-size-large
+text-form-size($size)
+  font-size $size
+  line-height $size + $spacing-xs

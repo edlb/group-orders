@@ -1,0 +1,61 @@
+// container
+.go-header-container
+  padding-top $spacing-xs * 7
+
+// module
+.go-header
+  background-color $color-primary
+  display flex
+  justify-content space-between
+  left 0
+  padding $spacing-xxs
+  position fixed
+  right 0
+  top 0
+  z-index 10
+  // states
+  &.is-active
+    box-shadow $shadow-z1
+
+//children
+.go-header-heading
+  padding $spacing-xs $spacing-xxs
+  text heading
+.go-header-icon, .go-header-icon::before
+  border-radius $border-radius-circle
+  display block
+  height $spacing-xlg
+  width $spacing-xlg
+.go-header-icon
+  cursor pointer
+  position relative
+  text-align center
+  // states
+  &:active
+    // children
+    &::before
+      transform scale(1)
+  // children
+  &::before
+    background-color rgba($color-black, $alpha-divider)
+    content ''
+    left 0
+    position absolute
+    top 0
+    transform scale(0)
+    transition transform $transition-duration-md
+    z-index -1
+.go-header-icon-restaurant-menu
+  background-image url('ic-restaurant-menu.svg')
+.go-header-section
+  display flex
+
+// media queries
+@media (orientation: landscape)
+  // container
+  .go-header-container
+    padding-top $spacing-xlg
+  // module
+  .go-header
+    padding-bottom 0
+    padding-top 0

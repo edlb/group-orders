@@ -1,0 +1,54 @@
+// container
+.go-products
+  display flex
+  flex-wrap wrap
+  margin-top - $spacing-xxs
+  padding $spacing-xxs * .5
+
+// module
+.go-product
+  background-color $color-card
+  border $spacing-xxs * .5 solid $color-body
+  cursor pointer
+  display block
+  width percentage(1)
+  // states
+  &.is-active, &.is-disabled
+    position relative
+    // children
+    &::after
+      content ''
+      display block
+      left 0
+      padding-top percentage(2 / 3)
+      position absolute
+      top 0
+      width percentage(1)
+  &.is-active
+    // children
+    &::after
+      background-color rgba($color-primary, $alpha-primary)
+      background-image url('ic-check-xxl.svg')
+  &.is-disabled
+    cursor default
+    // children
+    &::after
+      background-color rgba($color-disabled, $alpha-primary)
+      background-image url('ic-close-reverse-xxl.svg')
+    .go-product-body
+      color $color-text-hint
+
+// children
+.go-product-body
+  display flex
+  justify-content space-between
+  padding $spacing-sm $spacing-md
+.go-product-picture
+  background-size contain
+  display block
+  padding-top percentage(2 / 3)
+  width percentage(1)
+.go-product-price
+  align-self flex-end
+  flex-shrink 0
+  padding-left $spacing-md
